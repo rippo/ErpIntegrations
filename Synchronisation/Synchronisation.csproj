@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Webcrm.ErpIntegrations.Synchronisation</AssemblyName>
+    <RootNamespace>Webcrm.ErpIntegrations.Synchronisation</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn>CS0618</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <!-- Referencing the same version that Microsoft.NET.Sdk.Functions uses. -->
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiClients\ApiClients.csproj" />
+    <ProjectReference Include="..\Configurations\Configurations.csproj" />
+  </ItemGroup>
+
+</Project>

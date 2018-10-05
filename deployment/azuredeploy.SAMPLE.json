@@ -1,0 +1,175 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "isProduction": {
+      "defaultValue": false,
+      "type" : "bool"
+    },
+    "powerofficeApiBaseAddress": {
+      "defaultValue": "https://api-demo.poweroffice.net/",
+      "type": "string"
+    },
+    "powerofficeApplicationKey": {
+      "defaultValue": "XXX",
+      "type": "string"
+    },
+    "powerofficeAuthenticationBaseAddress": {
+      "defaultValue": "https://godemo.poweroffice.net/",
+      "type": "string"
+    },
+    "webcrmApiBaseUrl": {
+      // Currently defaulting to using the production API.
+      "defaultValue": "https://api.webcrm.com/",
+      "type": "string"
+    }
+},
+  "variables": {
+    "appInsightsName": "[concat(resourceGroup().name, '-appinsights')]",
+    "databaseAccountName": "[concat(resourceGroup().name, '-db')]",
+    "functionAppName": "[concat(resourceGroup().name, '-functions')]",
+    "hostingPlanName": "[concat(resourceGroup().name, '-farm')]",
+    "storageAccountName": "[concat(replace(resourceGroup().name, '-', ''), 'sa')]",
+    "storageAccountId": "[concat(resourceGroup().id, '/providers/', 'Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "kind": "Storage",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2018-02-01",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "kind": "GlobalDocumentDB",
+      "name": "[variables('databaseAccountName')]",
+      "apiVersion": "2015-04-08",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "defaultExperience": "DocumentDB"
+      },
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Eventual"
+        },
+        "name": "[variables('databaseAccountName')]"
+      }
+    },
+    {
+      "type": "Microsoft.Insights/components",
+      "kind": "other",
+      "name": "[variables('appInsightsName')]",
+      "apiVersion": "2015-05-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "Application_Type": "other",
+        "ApplicationId": "[variables('appInsightsName')]"
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "kind": "functionapp",
+      "name": "[variables('hostingPlanName')]",
+      "apiVersion": "2016-09-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "name": "[variables('hostingPlanName')]"
+      },
+      "sku": {
+        "name": "Y1",
+        "tier": "Dynamic",
+        "size": "Y1",
+        "family": "Y",
+        "capacity": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "kind": "functionapp",
+      "name": "[variables('functionAppName')]",
+      "apiVersion": "2016-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
+      ],
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+          "appSettings": [
+            {
+              "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+              "value": "[reference(concat('Microsoft.Insights/components/', variables('appInsightsName'))).InstrumentationKey]"
+            },
+            {
+              "name": "AzureWebJobsDashboard",
+              "value": "[if(parameters('isProduction'), json('null'), concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountId'),'2015-05-01-preview').key1))]"
+            },
+            {
+              "name": "AzureWebJobsStorage",
+              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountId'),'2015-05-01-preview').key1)]"
+            },
+            {
+              "name": "DatabaseAccountKey",
+              "value": "[listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('databaseAccountName')), '2016-03-31').primaryMasterKey]"
+            },
+            {
+              "name": "DatabaseEndpoint",
+              "value": "[reference(concat('Microsoft.DocumentDB/databaseAccounts/', variables('databaseAccountName'))).documentEndpoint]"
+            },
+            {
+              "name": "FUNCTION_APP_EDIT_MODE",
+              "value": "readonly"
+            },
+            {
+              "name": "FUNCTIONS_EXTENSION_VERSION",
+              "value": "~2"
+            },
+            {
+              "name": "FUNCTIONS_WORKER_RUNTIME",
+              "value": "dotnet"
+            },
+            {
+              "name": "MSDEPLOY_RENAME_LOCKED_FILES",
+              "value": "1"
+            },
+            {
+              "name": "PowerofficeApiBaseAddress",
+              "value": "[parameters('powerofficeApiBaseAddress')]"
+            },
+            {
+              "name": "PowerofficeApplicationKey",
+              "value": "[parameters('powerofficeApplicationKey')]"
+            },
+            {
+              "name": "PowerofficeAuthenticationBaseAddress",
+              "value": "[parameters('powerofficeAuthenticationBaseAddress')]"
+            },
+            {
+              "name": "WebcrmApiBaseUrl",
+              "value": "[parameters('webcrmApiBaseUrl')]"
+            },
+            {
+              "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountId'),'2015-05-01-preview').key1)]"
+            },
+            {
+              "name": "WEBSITE_CONTENTSHARE",
+              "value": "[concat(toLower(variables('functionAppName')), '-content')]"
+            }
+          ],
+          "ftpsState": "Disabled",
+          "phpVersion": "",
+          "use32BitWorkerProcess": true
+        }
+      }
+    }
+  ]
+}

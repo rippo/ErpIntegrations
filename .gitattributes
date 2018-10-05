@@ -1,0 +1,2 @@
+# Line endings are specified in .editorconfig, so turn off Git's automatic conversion.
+* -text

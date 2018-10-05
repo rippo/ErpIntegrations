@@ -1,0 +1,24 @@
+queue:
+  name: webc-Build01
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Compile
+  inputs:
+    command: build
+    projects: "Webcrm.ErpIntegrations.sln"
+    arguments: --configuration "Release"
+
+- task: DotNetCoreCLI@2
+  displayName: Run Tests
+  inputs:
+    command: test
+    arguments: --filter "Execution=Automatic" --configuration "Debug"
+    projects: "**/*.Test.csproj"
+
+- task: PublishTestResults@2
+  displayName: Publish Test Results
+  inputs:
+    # Setting testRunner to xUnit results in warnings about a wrong time format. There are no warnings with VSTest, but each test shows up twice in Azure DevOps.
+    testRunner: VSTest
+    testResultsFiles: "$(Agent.TempDirectory)/*.trx"

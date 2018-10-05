@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "isProduction": {
+      "value": true
+    },
+    "powerofficeApiBaseAddress": {
+      "value": "https://api.poweroffice.net/"
+    },
+    "powerofficeApplicationKey": {
+      "value": "XXX"
+    },
+    "powerofficeAuthenticationBaseAddress": {
+      "value": "https://go.poweroffice.net/"
+    },
+    "webcrmApiBaseUrl": {
+      "value":  "https://api.webcrm.com/" 
+    } 
+  }
+}

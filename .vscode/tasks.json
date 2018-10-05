@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build (Debug Configuration)",
+      "identifier": "buildDebug",
+      "command": "dotnet build",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build (Release Configuration)",
+      "identifier": "buildRelease",
+      "command": "dotnet build --configuration \"Release\"",
+      "type": "shell",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Watch PowerofficeApiClient Tests",
+      "identifier": "watchPowerofficeConnector",
+      "command": "dotnet watch test",
+      "options": {
+        "cwd": "${workspaceFolder}/PowerofficeApiClient.Test"
+      },
+      "type": "shell",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Local Host",
+      "identifier": "startLocalHost",
+      "type": "shell",
+      "dependsOn": "buildDebug",
+      "options": {
+        "cwd": "${workspaceFolder}/FunctionApps/bin/Debug/netstandard2.0"
+      },
+      "command": "func host start",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "EditorConfig.editorconfig",
+    "ms-azuretools.vscode-azurefunctions",
+    "ms-vscode.csharp"
+  ]
+}

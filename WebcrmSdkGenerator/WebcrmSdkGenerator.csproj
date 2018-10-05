@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Webcrm.ErpIntegrations.WebcrmSdkGenerator</AssemblyName>
+    <RootNamespace>Webcrm.ErpIntegrations.WebcrmSdkGenerator</RootNamespace>
+    <Configurations>Debug;Release;GenerateWebcrmSdk</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NSwag.CodeGeneration.CSharp" Version="11.19.2" />
+    <PackageReference Include="NSwag.MSBuild" Version="11.19.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="if $(ConfigurationName) == GenerateWebcrmSdk (&#xD;&#xA;  echo Generating webCRM API Client...&#xD;&#xA;  $(NSwagExe_Core20) run ..\ApiClients\WebcrmApiClient\nswag.json /input:swagger.json&#xD;&#xA;)" />
+  </Target>
+
+</Project>

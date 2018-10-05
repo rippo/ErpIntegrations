@@ -1,0 +1,127 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApps", "FunctionApps\FunctionApps.csproj", "{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synchronisation", "Synchronisation\Synchronisation.csproj", "{C75B3E14-6324-429D-9AE1-3492CCFB56F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synchronisation.Test", "Synchronisation.Test\Synchronisation.Test.csproj", "{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D73426ED-356E-424F-92EE-78C3123532C8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.vsts-ci.yml = .vsts-ci.yml
+		Fortnox.md = Fortnox.md
+		PowerOffice.md = PowerOffice.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralUtilities.Test", "GeneralUtilities.Test\GeneralUtilities.Test.csproj", "{A519F577-A06B-41F3-A2FC-5BAE926192A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralUtilities", "GeneralUtilities\GeneralUtilities.csproj", "{CE964AB9-C60F-4003-AE50-F26F72761955}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configurations", "Configurations\Configurations.csproj", "{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configurations.Test", "Configurations.Test\Configurations.Test.csproj", "{7E812D3C-0E26-4ABC-98F9-9786252E359F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUtilities", "TestUtilities\TestUtilities.csproj", "{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiClients", "ApiClients\ApiClients.csproj", "{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiClients.Test", "ApiClients.Test\ApiClients.Test.csproj", "{7AEAD05F-8155-482C-B020-C85149A6C43B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebcrmSdkGenerator", "WebcrmSdkGenerator\WebcrmSdkGenerator.csproj", "{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{23CC2F94-4663-4F69-8571-BF2B6BDFCB5F}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\azuredeploy.parameters.prod.SAMPLE.json = deployment\azuredeploy.parameters.prod.SAMPLE.json
+		deployment\azuredeploy.SAMPLE.json = deployment\azuredeploy.SAMPLE.json
+		deployment\Connect.ps1 = deployment\Connect.ps1
+		deployment\Create-Resources.ps1 = deployment\Create-Resources.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		GenerateWebcrmSdk|Any CPU = GenerateWebcrmSdk|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F9D4F3-51D0-42AE-B8F1-8C8D763685DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C75B3E14-6324-429D-9AE1-3492CCFB56F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75B3E14-6324-429D-9AE1-3492CCFB56F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C75B3E14-6324-429D-9AE1-3492CCFB56F3}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75B3E14-6324-429D-9AE1-3492CCFB56F3}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{C75B3E14-6324-429D-9AE1-3492CCFB56F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C75B3E14-6324-429D-9AE1-3492CCFB56F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4C32B0-86A5-4814-99EE-6EBAB07EE850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A519F577-A06B-41F3-A2FC-5BAE926192A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A519F577-A06B-41F3-A2FC-5BAE926192A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A519F577-A06B-41F3-A2FC-5BAE926192A7}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{A519F577-A06B-41F3-A2FC-5BAE926192A7}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{A519F577-A06B-41F3-A2FC-5BAE926192A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A519F577-A06B-41F3-A2FC-5BAE926192A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE964AB9-C60F-4003-AE50-F26F72761955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE964AB9-C60F-4003-AE50-F26F72761955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE964AB9-C60F-4003-AE50-F26F72761955}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE964AB9-C60F-4003-AE50-F26F72761955}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{CE964AB9-C60F-4003-AE50-F26F72761955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE964AB9-C60F-4003-AE50-F26F72761955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B7A21E3-7DF1-4906-9733-FB710A7DE4FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E812D3C-0E26-4ABC-98F9-9786252E359F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E812D3C-0E26-4ABC-98F9-9786252E359F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E812D3C-0E26-4ABC-98F9-9786252E359F}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E812D3C-0E26-4ABC-98F9-9786252E359F}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{7E812D3C-0E26-4ABC-98F9-9786252E359F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E812D3C-0E26-4ABC-98F9-9786252E359F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2F8071-0F0A-46CA-9B9C-6BBE5DBFDC21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ACDF4D0-C7DF-4FC5-AEB7-C552F0256421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEAD05F-8155-482C-B020-C85149A6C43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEAD05F-8155-482C-B020-C85149A6C43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEAD05F-8155-482C-B020-C85149A6C43B}.GenerateWebcrmSdk|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEAD05F-8155-482C-B020-C85149A6C43B}.GenerateWebcrmSdk|Any CPU.Build.0 = Debug|Any CPU
+		{7AEAD05F-8155-482C-B020-C85149A6C43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEAD05F-8155-482C-B020-C85149A6C43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}.GenerateWebcrmSdk|Any CPU.ActiveCfg = GenerateWebcrmSdk|Any CPU
+		{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}.GenerateWebcrmSdk|Any CPU.Build.0 = GenerateWebcrmSdk|Any CPU
+		{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DDC5AD3-0D54-4ED5-B1FA-7458F2F78DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23CC2F94-4663-4F69-8571-BF2B6BDFCB5F} = {D73426ED-356E-424F-92EE-78C3123532C8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5150F8C1-A752-4FA5-99DB-09D757736775}
+	EndGlobalSection
+EndGlobal

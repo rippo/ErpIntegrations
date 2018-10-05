@@ -1,0 +1,20 @@
+{
+  // Some of these values are duplicated in TestTypedEnvironment.cs to make it easier to access them in the test code.
+  "IsEncrypted": false,
+  "Values": {
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "XXX",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=XXX;AccountKey=XXX",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=XXX;AccountKey=XXX",
+    "DatabaseAccountKey": "XXX",
+    "DatabaseEndpoint": "XXX",
+    "FUNCTIONS_EXTENSION_VERSION": "~2",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "PowerofficeApiBaseAddress": "https://api-demo.poweroffice.net/",
+    "PowerofficeApplicationKey": "XXX",
+    "PowerofficeAuthenticationBaseAddress": "https://godemo.poweroffice.net/",
+    "WebcrmApiBaseUrl": "https://api.webcrm.com/", 
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=XXX;AccountKey=XXX",
+    "WEBSITE_CONTENTSHARE": "XXX"
+  },
+  "ConnectionStrings": {}
+}
